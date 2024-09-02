@@ -1,9 +1,4 @@
-MC = nil
-Citizen.CreateThread(function()
-  TriggerEvent("ple_morecontrols:getControls",function(cb)
-    MC = cb
-  end)
-end)
+
 
 -- RegisterCommand('openMinigame', function()
 --     TriggerEvent('dodi_minigame_bar:Tip', "Acerte o alvo 3x pressionando [E]!", 2000)
@@ -27,7 +22,7 @@ end, false)
 RegisterCommand('startCrafting', function()
     TriggerEvent('crafting_minigame:Tip', "Iniciando o crafting...", 2000)
     SetNuiFocus(true, false)
-    MC.StartFocus(GetCurrentResourceName())
+ 
     SendNUIMessage({
         action = "openCraftingMinigame",
         craftDuration = 30000, -- Duração do crafting em milissegundos
@@ -40,7 +35,7 @@ RegisterCommand('closeCraftingMinigame', function()
     SendNUIMessage({
         action = "closeCraftingMinigame"
     })
-    MC.EndFocus(GetCurrentResourceName())
+ 
 end, false)
 
 RegisterNUICallback('closeCraftingMinigame', function(data, cb)
@@ -54,14 +49,14 @@ RegisterNUICallback('closeCraftingMinigame', function(data, cb)
         TriggerEvent('craftingSuccess')
     end
     
-    MC.EndFocus(GetCurrentResourceName())
+
     cb('ok')
 end)
 
 
 exports('startCraftingMinigame', function(craftDuration, successEvent)
     SetNuiFocus(true, false)
-    MC.StartFocus(GetCurrentResourceName())
+
     SendNUIMessage({
         action = "openCraftingMinigame",
         craftDuration = craftDuration, -- Passa a duração do crafting para o JavaScript
