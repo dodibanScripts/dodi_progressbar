@@ -3,7 +3,6 @@
 -- RegisterCommand('openMinigame', function()
 --     TriggerEvent('dodi_minigame_bar:Tip', "Acerte o alvo 3x pressionando [E]!", 2000)
 --     SetNuiFocus(true, false)
---     MC.StartFocus(GetCurrentResourceName())
 --     SendNUIMessage({
 --         action = "openMinigame",
 --         hits = 3, -- Número de acertos necessários
